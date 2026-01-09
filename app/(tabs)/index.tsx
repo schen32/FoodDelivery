@@ -132,6 +132,7 @@ const styles = StyleSheet.create({
   cardImage: {
     height: "100%",
     width: "100%",
+    borderRadius: 50,
   },
   cardText: {
     color: "white",
