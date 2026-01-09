@@ -1,3 +1,4 @@
+import { offers } from "@/constants";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -5,10 +6,10 @@ export default function Index() {
   return (
     <SafeAreaView>
       <FlatList
-        data={[1, 2, 3, 4]}
+        data={offers}
         renderItem={({ item }) => (
           <View>
-            <Text>{item}</Text>
+            <Text>{item.title}</Text>
           </View>
         )}
       ></FlatList>
