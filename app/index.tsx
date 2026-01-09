@@ -1,3 +1,4 @@
+import CartButton from "@/components/cartButton";
 import { images, offers } from "@/constants";
 import { colors } from "@/theme/colors";
 import { Fragment } from "react";
@@ -15,17 +16,23 @@ import { SafeAreaView } from "react-native-safe-area-context";
 export default function Index() {
   return (
     <SafeAreaView style={styles.safe}>
-      <View style={styles.headerView1}>
-        <View style={styles.headerView2}>
-          <Text style={styles.headerText1}>DELIVER TO</Text>
-          <TouchableOpacity style={styles.headerView3}>
-            <Text style={styles.headerText2}>Croatia</Text>
-            <Image style={styles.headerArrow} source={images.arrowDown}></Image>
-          </TouchableOpacity>
-        </View>
-      </View>
-
       <FlatList
+        ListHeaderComponent={() => (
+          <View style={styles.headerView1}>
+            <View style={styles.headerView2}>
+              <Text style={styles.headerText1}>DELIVER TO</Text>
+              <TouchableOpacity style={styles.headerView3}>
+                <Text style={styles.headerText2}>Croatia</Text>
+                <Image
+                  style={styles.headerArrow}
+                  source={images.arrowDown}
+                ></Image>
+              </TouchableOpacity>
+            </View>
+
+            <CartButton></CartButton>
+          </View>
+        )}
         contentContainerStyle={styles.flatListContainer}
         data={offers}
         renderItem={({ item, index }) => {
@@ -69,6 +76,7 @@ export default function Index() {
 const styles = StyleSheet.create({
   headerView1: {
     flexDirection: "row",
+    alignItems: "center",
     justifyContent: "space-between",
   },
   headerView2: {
