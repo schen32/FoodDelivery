@@ -1,10 +1,17 @@
+import { router } from "expo-router";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
 
 const signUp = () => {
   return (
     <View>
-      <Text>sign-up</Text>
+      <Text>Sign Up</Text>
+      <Button
+        title="Sign In"
+        onPress={() => {
+          router.push("/sign-in");
+        }}
+      ></Button>
     </View>
   );
 };
