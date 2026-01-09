@@ -1,5 +1,5 @@
 import { offers } from "@/constants";
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import { FlatList, Pressable, StyleSheet, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
@@ -7,10 +7,10 @@ export default function Index() {
     <SafeAreaView>
       <FlatList
         data={offers}
-        renderItem={({ item }) => (
-          <View>
+        renderItem={({ item, index }) => (
+          <Pressable>
             <Text>{item.title}</Text>
-          </View>
+          </Pressable>
         )}
       ></FlatList>
     </SafeAreaView>
