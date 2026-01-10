@@ -1,5 +1,6 @@
 import CustomButton from "@/components/customButton";
 import CustomInput from "@/components/customInput";
+import { signInSession } from "@/lib/appwrite";
 import { colors } from "@/theme/colors";
 import { Link, router } from "expo-router";
 import React, { useState } from "react";
@@ -17,9 +18,7 @@ const signIn = () => {
 
     setIsSubmitting(true);
     try {
-      // call appwrite sign in
-
-      Alert.alert("Success", "User signed in successfully");
+      await signInSession({ email: form.email, password: form.password });
       router.replace("/");
     } catch (error: any) {
       Alert.alert("Error", error.message);
