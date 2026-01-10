@@ -1,3 +1,5 @@
+import CustomButton from "@/components/customButton";
+import CustomInput from "@/components/customInput";
 import { images } from "@/constants";
 import React from "react";
 import {
@@ -25,6 +27,16 @@ const _layout = () => {
           ></ImageBackground>
           <Image style={styles.imageLogo} source={images.logo}></Image>
         </View>
+
+        <CustomInput
+          placeholder="Enter your email"
+          value={""}
+          onChangeText={() => {}}
+          label="Email"
+          secureTextEntry={false}
+          keyboardType="email-address"
+        ></CustomInput>
+        <CustomButton></CustomButton>
       </ScrollView>
     </KeyboardAvoidingView>
   );
