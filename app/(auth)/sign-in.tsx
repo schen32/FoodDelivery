@@ -1,27 +1,41 @@
-import { router } from "expo-router";
+import CustomButton from "@/components/customButton";
+import CustomInput from "@/components/customInput";
 import React from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 const signIn = () => {
   return (
-    <View>
-      <Text>Sign In</Text>
-      <Button
-        title="Sign Up"
-        onPress={() => {
-          router.push("/sign-up");
-        }}
-      ></Button>
-      <Button
-        title="Home Screen"
-        onPress={() => {
-          router.push("/");
-        }}
-      ></Button>
+    <View style={styles.view}>
+      <CustomInput
+        placeholder="Enter your email"
+        value={""}
+        onChangeText={() => {}}
+        label="Email"
+        secureTextEntry={false}
+        keyboardType="email-address"
+      ></CustomInput>
+
+      <CustomInput
+        placeholder="Enter your password"
+        value={""}
+        onChangeText={() => {}}
+        label="Password"
+        secureTextEntry={true}
+      ></CustomInput>
+
+      <CustomButton title="Sign In"></CustomButton>
     </View>
   );
 };
 
 export default signIn;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  view: {
+    gap: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 10,
+    marginTop: 20,
+  },
+});
