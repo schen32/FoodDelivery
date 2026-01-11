@@ -1,10 +1,8 @@
 import CartButton from "@/components/cartButton";
 import { images, offers } from "@/constants";
 import { colors } from "@/theme/colors";
-import { router } from "expo-router";
 import { Fragment } from "react";
 import {
-  Button,
   FlatList,
   Image,
   Pressable,
@@ -71,12 +69,6 @@ export default function Index() {
           );
         }}
       ></FlatList>
-      <Button
-        title="Sign In"
-        onPress={() => {
-          router.push("/sign-in");
-        }}
-      ></Button>
     </SafeAreaView>
   );
 }
