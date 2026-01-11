@@ -1,5 +1,6 @@
 import CartButton from "@/components/cartButton";
 import { images, offers } from "@/constants";
+import useAuthStore from "@/store/auth.store";
 import { colors } from "@/theme/colors";
 import { Fragment } from "react";
 import {
@@ -14,6 +15,9 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
+  const { user } = useAuthStore();
+  console.log("USER:", JSON.stringify(user, null, 2));
+
   return (
     <SafeAreaView style={styles.safe}>
       <FlatList
