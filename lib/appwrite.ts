@@ -5,8 +5,13 @@ export const config = {
     projectId: process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID!,
     endpoint: process.env.EXPO_PUBLIC_APPWRITE_ENDPOINT!,
     platform: "com.food.delivery",
+    bucketId: "6963a2e6002cf8ca48ac",
     databaseId: process.env.EXPO_PUBLIC_APPWRITE_DATABASE_ID!,
-    userTableId: process.env.EXPO_PUBLIC_APPWRITE_USER_TABLE_ID!
+    userTableId: process.env.EXPO_PUBLIC_APPWRITE_USER_TABLE_ID!,
+    categoriesTableId: process.env.EXPO_PUBLIC_APPWRITE_CATEGORIES_TABLE_ID!,
+    menuTableId: process.env.EXPO_PUBLIC_APPWRITE_MENU_TABLE_ID!,
+    customizationsTableId: process.env.EXPO_PUBLIC_APPWRITE_CUSTOMIZATIONS_TABLE_ID!,
+    menuCustomicationsTableId: process.env.EXPO_PUBLIC_APPWRITE_MENU_CUSTOMIZATIONS_TABLE_ID
 }
 
 export const client = new Client();
