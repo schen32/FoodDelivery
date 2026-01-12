@@ -1,5 +1,5 @@
 import { CreateUserPrams, SignInParams } from "@/type";
-import { Account, Avatars, Client, Databases, ID, Query, TablesDB } from "react-native-appwrite";
+import { Account, Avatars, Client, Databases, ID, Query, Storage, TablesDB } from "react-native-appwrite";
 
 export const config = {
     projectId: process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID!,
@@ -11,7 +11,7 @@ export const config = {
     categoriesTableId: process.env.EXPO_PUBLIC_APPWRITE_CATEGORIES_TABLE_ID!,
     menuTableId: process.env.EXPO_PUBLIC_APPWRITE_MENU_TABLE_ID!,
     customizationsTableId: process.env.EXPO_PUBLIC_APPWRITE_CUSTOMIZATIONS_TABLE_ID!,
-    menuCustomicationsTableId: process.env.EXPO_PUBLIC_APPWRITE_MENU_CUSTOMIZATIONS_TABLE_ID
+    menuCustomizationsTableId: process.env.EXPO_PUBLIC_APPWRITE_MENU_CUSTOMIZATIONS_TABLE_ID!
 }
 
 export const client = new Client();
@@ -24,7 +24,8 @@ client
 export const account = new Account(client);
 export const avatars = new Avatars(client);
 export const databases = new Databases(client);
-export const userTable = new TablesDB(client);
+export const tables = new TablesDB(client);
+export const storage = new Storage(client);
 
 export const createUser = async ({ email, password, name }: CreateUserPrams) => {
     try {
@@ -39,7 +40,7 @@ export const createUser = async ({ email, password, name }: CreateUserPrams) => 
 
         const avatarUrl = avatars.getInitialsURL(name);
 
-        const newUser = await userTable.createRow({
+        const newUser = await tables.createRow({
             databaseId: config.databaseId,
             tableId: config.userTableId,
             rowId: ID.unique(),
@@ -74,7 +75,7 @@ export const getCurrentUser = async () => {
         const currentAccount = await account.get();
         if (!currentAccount) throw Error;
 
-        const currentUser = await userTable.listRows({
+        const currentUser = await tables.listRows({
             databaseId: config.databaseId,
             tableId: config.userTableId,
             queries: [Query.equal("accountId", currentAccount.$id)]
